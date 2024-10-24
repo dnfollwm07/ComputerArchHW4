@@ -94,8 +94,8 @@ class Cache:
             if self.metaCache[set_number][way] == tag:
                 self.hit += 1
                 # update lru
-                self.move_to_first(self.metaCache[set_number], way)
-                self.move_to_first(self.cache[set_number], way)
+                self.move_element_to_head(self.metaCache[set_number], way)
+                self.move_element_to_head(self.cache[set_number], way)
                 return True
 
         self.miss += 1
@@ -126,7 +126,11 @@ class Cache:
         # Load a dummy block of data (for simplicity, not simulating real data)
         self.cache[set_number][use_way] = np.zeros(self.blockSize, dtype=int)
 
-    def move_to_first(self, arr, index):
+
+    def move_element_to_head(self, arr, index):
+        """
+           Moves the specified element in a NumPy array to the beginning of the array.
+       """
         if index == 0:
             return arr
         target = arr[index]
