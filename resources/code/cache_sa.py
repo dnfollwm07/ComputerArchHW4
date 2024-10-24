@@ -68,7 +68,8 @@ class Cache:
     '''
 
     def find_set(self, address):
-        pass
+        set_mask = (1 << self.setBits) - 1
+        return (address >> self.blockBits) & set_mask
 
     '''
     Returns the tag of an address based on the policy discussed in the class
@@ -76,7 +77,7 @@ class Cache:
     '''
     
     def find_tag(self, address):
-        pass
+        return address >> (self.blockBits + self.setBits)
 
     '''
     Search through cache for address
@@ -86,7 +87,19 @@ class Cache:
     '''
 
     def find(self, address):
-        pass
+        set_number = self.find_set(address)
+        tag = self.find_tag(address)
+
+        for way in range(self.ways):
+            if self.metaCache[set_number][way] == tag:
+                self.hit += 1
+                # update lru
+                self.move_to_first(self.metaCache[set_number], way)
+                self.move_to_first(self.cache[set_number], way)
+                return True
+
+        self.miss += 1
+        return False
     
     '''
     Load data into the cache. 
@@ -95,5 +108,30 @@ class Cache:
     '''
    
     def load(self, address):
-        pass
+        set_number = self.find_set(address)
+        tag = self.find_tag(address)
+
+        use_way = -1
+        # Check if there is an empty spot in the set
+        for way in range(self.ways):
+            if self.metaCache[set_number][way] == -1:
+                use_way = way
+                break
+
+        # If no empty spot, use LRU replacement policy to evict one
+        # The end of the array is the least recently used
+        if use_way == -1:
+            use_way = self.ways - 1
+        self.metaCache[set_number][use_way] = tag
+        # Load a dummy block of data (for simplicity, not simulating real data)
+        self.cache[set_number][use_way] = np.zeros(self.blockSize, dtype=int)
+
+    def move_to_first(self, arr, index):
+        if index == 0:
+            return arr
+        target = arr[index]
+        for i in range(index - 1, -1, -1):
+            arr[i + 1] = arr[i]
+        arr[0] = target
+        return arr
 
