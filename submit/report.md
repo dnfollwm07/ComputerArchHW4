@@ -1,3 +1,5 @@
+# output
+```plain
 D:\homework\ComputerArchHW4\resources\traces>python ../code/sim_dm.py first.trace 16 1 4
 first.trace
 Processing your program trace, progress so far = 0 %
@@ -253,3 +255,11 @@ total cache misses 11
 miss_rate 0.9166666666666666
 hit_rate 0.08333333333333337
 Finished processing your program trace, progress = 100.0 %
+```
+# 对代码逻辑的解释和输出的澄清。
+# 热⾝练习和验证部分的⼯作。
+TODO: 用下面的命名跑一下diff
+`diff .\submit\log.txt .\resources\reference_outputs\output_trace.txt`
+```plain
+
+```
