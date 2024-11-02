@@ -113,5 +113,5 @@ class Cache:
         self.metaCache[set_index][0] = tag
 
         # Fill the cache block with random data as a placeholder (real cache would pull from memory)
-        self.cache[set_index][0] = random.randint(0, 255)
+        self.cache[set_index][0] = address
 
