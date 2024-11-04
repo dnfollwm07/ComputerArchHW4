@@ -4,5 +4,5 @@
 # windows
 ..\test\test_all.bat > ..\..\submit\log.txt
 # mac
-..\test\test_all.sh > ..\..\submit\log.txt
+../test/test_all.sh > ../../submit/log.txt
 ```

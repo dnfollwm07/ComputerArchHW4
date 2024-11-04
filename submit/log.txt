@@ -1,4 +1,3 @@
-D:\homework\ComputerArchHW4\resources\traces>python ../code/sim_dm.py first.trace 16 1 4
 first.trace
 Processing your program trace, progress so far = 0 %
 set and tag of 0x0 is 0 0
@@ -21,8 +20,6 @@ total cache misses 6
 miss_rate 0.75
 hit_rate 0.25
 Finished processing your program trace, progress = 100.0 %
-
-D:\homework\ComputerArchHW4\resources\traces>python ../code/sim_dm.py first.trace 16 1 8 
 first.trace
 Processing your program trace, progress so far = 0 %
 set and tag of 0x0 is 0 0
@@ -45,8 +42,6 @@ total cache misses 4
 miss_rate 0.5
 hit_rate 0.5
 Finished processing your program trace, progress = 100.0 %
-
-D:\homework\ComputerArchHW4\resources\traces>python ../code/sim_dm.py pingpong.trace 16 1 4 
 pingpong.trace
 Processing your program trace, progress so far = 0 %
 set and tag of 0x0 is 0 0
@@ -69,8 +64,6 @@ total cache misses 8
 miss_rate 1.0
 hit_rate 0.0
 Finished processing your program trace, progress = 100.0 %
-
-D:\homework\ComputerArchHW4\resources\traces>python ../code/sim_sa.py pingpong.trace 16 2 4 
 pingpong.trace
 Processing your program trace, progress so far = 0 %
 set and tag of 0x0 is 0 0
@@ -93,8 +86,6 @@ total cache misses 2
 miss_rate 0.25
 hit_rate 0.75
 Finished processing your program trace, progress = 100.0 %
-
-D:\homework\ComputerArchHW4\resources\traces>python ../code/sim_sa.py test_q.trace 64 2 4 
 test_q.trace
 Processing your program trace, progress so far = 0 %
 set and tag of 0x0 is 0 0
@@ -125,8 +116,6 @@ total cache misses 8
 miss_rate 0.6666666666666666
 hit_rate 0.33333333333333337
 Finished processing your program trace, progress = 100.0 %
-
-D:\homework\ComputerArchHW4\resources\traces>python ../code/sim_sa.py sa.trace  64 2 8 
 sa.trace
 Processing your program trace, progress so far = 0 %
 set and tag of 0x4 is 0 0
@@ -157,8 +146,6 @@ total cache misses 7
 miss_rate 0.5833333333333334
 hit_rate 0.41666666666666663
 Finished processing your program trace, progress = 100.0 %
-
-D:\homework\ComputerArchHW4\resources\traces>python ../code/sim_dm.py dm_a.trace 64 1 4 
 dm_a.trace
 Processing your program trace, progress so far = 0 %
 set and tag of 0x0 is 0 0
@@ -221,8 +208,6 @@ total cache misses 24
 miss_rate 0.8571428571428571
 hit_rate 0.1428571428571429
 Finished processing your program trace, progress = 100.0 %
-
-D:\homework\ComputerArchHW4\resources\traces>python ../code/sim_dm.py dm_b.trace 64 1 8 
 dm_b.trace
 Processing your program trace, progress so far = 0 %
 set and tag of 0x4 is 0 0
