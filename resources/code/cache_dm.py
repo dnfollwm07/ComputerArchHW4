@@ -68,7 +68,6 @@ class Cache:
     '''
 
     def find_set(self, address):
-        # Mask and shift address to get the set index
         return (address >> self.blockBits) & (self.sets - 1)
 
     '''
@@ -77,7 +76,6 @@ class Cache:
     '''
     
     def find_tag(self, address):
-        # Get the tag from the address by shifting right to remove set and block bits
         return address >> (self.blockBits + self.setBits)
 
     '''
@@ -91,7 +89,6 @@ class Cache:
         set_index = self.find_set(address)
         tag = self.find_tag(address)
 
-        # Check if the tag matches in the cache's metadata for the given set index
         if self.metaCache[set_index][0] == tag:
             self.hit += 1
             return True
@@ -109,9 +106,7 @@ class Cache:
         set_index = self.find_set(address)
         tag = self.find_tag(address)
 
-        # Evict the current block in the set (since this is a direct-mapped cache)
         self.metaCache[set_index][0] = tag
 
-        # Fill the cache block with random data as a placeholder (real cache would pull from memory)
         self.cache[set_index][0] = address
 

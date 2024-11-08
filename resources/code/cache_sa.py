@@ -93,7 +93,6 @@ class Cache:
         for way in range(self.ways):
             if self.metaCache[set_number][way] == tag:
                 self.hit += 1
-                # update lru
                 self.move_element_to_head(self.metaCache[set_number], way)
                 self.move_element_to_head(self.cache[set_number], way)
                 return True
@@ -112,19 +111,17 @@ class Cache:
         tag = self.find_tag(address)
 
         use_way = -1
-        # Check if there is an empty spot in the set
         for way in range(self.ways):
             if self.metaCache[set_number][way] == -1:
                 use_way = way
                 break
 
-        # If no empty spot, use LRU replacement policy to evict one
-        # The end of the array is the least recently used
         if use_way == -1:
             use_way = self.ways - 1
         self.metaCache[set_number][use_way] = tag
-        # Load a dummy block of data (for simplicity, not simulating real data)
-        self.cache[set_number][use_way] = np.zeros(self.blockSize, dtype=int)
+        self.cache[set_number][use_way] = address
+
+        self.move_element_to_head(self.metaCache[set_number], use_way)
 
 
     def move_element_to_head(self, arr, index):
